@@ -7,17 +7,13 @@
 	</head>
 	<body>
 		
-		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-			<ul class="nav navbar-nav">
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
+		
 		<div id="list-almacen" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-				<div class="message" role="status">${flash.message}</div>
-			</g:if>
+			
+			<g:link class="btn btn-primary" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link>
+			<!--<g:link class="btn btn-primary" action="edit"><g:message code="default.edit.label" args="[entityName]" /></g:link>
+			<g:link class="btn btn-primary" action="delete"><g:message code="default.button.delete.label" args="[entityName]" /></g:link>-->
 			<table class="table table-hover">
 			<thead>
 					<tr>
@@ -44,6 +40,9 @@
 				</g:each>
 				</tbody>
 			</table>
+			<g:if test="${flash.message}">
+				<div class="message" role="status">${flash.message}</div>
+			</g:if>
 			<div class="pagination">
 				<g:paginate total="${almacenInstanceCount ?: 0}" />
 			</div>
