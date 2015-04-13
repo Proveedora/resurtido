@@ -21,36 +21,24 @@
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<ol class="property-list almacen">
+			<dl class="dl-horizontal">
 			
-				<g:if test="${almacenInstance?.clave}">
-				<li class="fieldcontain">
-					<span id="clave-label" class="property-label"><g:message code="almacen.clave.label" default="Clave" /></span>
-					
-						<span class="property-value" aria-labelledby="clave-label"><g:fieldValue bean="${almacenInstance}" field="clave"/></span>
-					
-				</li>
+				<g:if test="${almacenInstance?.clave}">				
+				<dt><span id="clave-label" class="property-label"><g:message code="almacen.clave.label" default="Clave" /></span></dt>
+				<dd><span class="property-value" aria-labelledby="clave-label"><g:fieldValue bean="${almacenInstance}" field="clave"/></span></dd>
 				</g:if>
 			
 				<g:if test="${almacenInstance?.direccionDB}">
-				<li class="fieldcontain">
-					<span id="direccionDB-label" class="property-label"><g:message code="almacen.direccionDB.label" default="Direccion DB" /></span>
-					
-						<span class="property-value" aria-labelledby="direccionDB-label"><g:fieldValue bean="${almacenInstance}" field="direccionDB"/></span>
-					
-				</li>
+				<dt><span id="direccionDB-label" class="property-label"><g:message code="almacen.direccionDB.label" default="Direccion DB" /></span></dt>
+				<dd><span class="property-value" aria-labelledby="direccionDB-label"><g:fieldValue bean="${almacenInstance}" field="direccionDB"/></span></dd>	
 				</g:if>
 			
 				<g:if test="${almacenInstance?.nombre}">
-				<li class="fieldcontain">
-					<span id="nombre-label" class="property-label"><g:message code="almacen.nombre.label" default="Nombre" /></span>
-					
-						<span class="property-value" aria-labelledby="nombre-label"><g:fieldValue bean="${almacenInstance}" field="nombre"/></span>
-					
-				</li>
+				<dt><span id="nombre-label" class="property-label"><g:message code="almacen.nombre.label" default="Nombre" /></span><dt>
+				<dd><span class="property-value" aria-labelledby="nombre-label"><g:fieldValue bean="${almacenInstance}" field="nombre"/></span><dd>
 				</g:if>
 			
-			</ol>
+			</dl>
 			<g:form url="[resource:almacenInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
 					<g:link class="edit" action="edit" resource="${almacenInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
