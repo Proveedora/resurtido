@@ -38,7 +38,7 @@
               <ul class="dropdown-menu">
                 <li><a href="/resurtido/rol/index">Roles</a></li>
                 <li><a href="/resurtido/usuario/index">Usuarios</a></li>
-                <li><a href="#">Almacenes</a></li>
+                <li><a href="/resurtido/almacen/index">Almacenes</a></li>
               </ul>
             </li>
 	<!--		<li><a href="#">Link</a></li>
