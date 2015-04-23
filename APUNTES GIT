@@ -1,0 +1,21 @@
+dominio --> entidad --> catalogo (lo que se mapea directo a la base de datos).
+servicio ->es el que te pone las reglas de negocio para entrar a las entidades.
+controlador -> despacha la vista aqui es donde se ve el get o el set o ...
+
+
+jasper report
+
+git init para que git vea los cambios de la carpeta
+pwd (linux) directorio
+git status para ver cambios
+git add -A sube el proyecto
+git log muestra los cambios que eh hecho
+git commit -m "mensaje" se mete un mensaje para el cambio realizado
+git branch "nombre de la rama" crea una rama del proyecto
+git branch vez tus ramas
+git checkout "nombre de la rama" te cambia de rama 
+git merge "nombre de la rama" combina la rama 
+git clone https://github.com/Proveedora/resurtido_proveedora.git
+user proveedora pass provesco123456  para clonar 
+
+https://github.com/Proveedora/resurtido.git
