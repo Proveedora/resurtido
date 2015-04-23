@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="resurtido dev" uuid="659971e8-9947-4d89-864b-d4820230b94e">
+      <user-name>postgres</user-name>
+      <user-password>df9bdf98df99df9edf9fdf9c</user-password>
+      <schema-pattern>resurtido.pg_catalog resurtido.public</schema-pattern>
+      <default-schemas>resurtido.pg_catalog resurtido.public</default-schemas>
+    </data-source>
+  </component>
+</project>

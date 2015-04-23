@@ -1,13 +1,13 @@
-package prov.res.usuarios
+package prov.res.catalogos
 
 
 
 import grails.test.mixin.*
 import spock.lang.*
 
-@TestFor(UsuarioController)
-@Mock(Usuario)
-class UsuarioControllerSpec extends Specification {
+@TestFor(AgenteController)
+@Mock(Agente)
+class AgenteControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
@@ -21,8 +21,8 @@ class UsuarioControllerSpec extends Specification {
             controller.index()
 
         then:"The model is correct"
-            !model.usuarioInstanceList
-            model.usuarioInstanceCount == 0
+            !model.agenteInstanceList
+            model.agenteInstanceCount == 0
     }
 
     void "Test the create action returns the correct model"() {
@@ -30,7 +30,7 @@ class UsuarioControllerSpec extends Specification {
             controller.create()
 
         then:"The model is correctly created"
-            model.usuarioInstance!= null
+            model.agenteInstance!= null
     }
 
     void "Test the save action correctly persists an instance"() {
@@ -38,25 +38,25 @@ class UsuarioControllerSpec extends Specification {
         when:"The save action is executed with an invalid instance"
             request.contentType = FORM_CONTENT_TYPE
             request.method = 'POST'
-            def usuario = new Usuario()
-            usuario.validate()
-            controller.save(usuario)
+            def agente = new Agente()
+            agente.validate()
+            controller.save(agente)
 
         then:"The create view is rendered again with the correct model"
-            model.usuarioInstance!= null
+            model.agenteInstance!= null
             view == 'create'
 
         when:"The save action is executed with a valid instance"
             response.reset()
             populateValidParams(params)
-            usuario = new Usuario(params)
+            agente = new Agente(params)
 
-            controller.save(usuario)
+            controller.save(agente)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/usuario/show/1'
+            response.redirectedUrl == '/agente/show/1'
             controller.flash.message != null
-            Usuario.count() == 1
+            Agente.count() == 1
     }
 
     void "Test that the show action returns the correct model"() {
@@ -68,11 +68,11 @@ class UsuarioControllerSpec extends Specification {
 
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
-            def usuario = new Usuario(params)
-            controller.show(usuario)
+            def agente = new Agente(params)
+            controller.show(agente)
 
         then:"A model is populated containing the domain instance"
-            model.usuarioInstance == usuario
+            model.agenteInstance == agente
     }
 
     void "Test that the edit action returns the correct model"() {
@@ -84,11 +84,11 @@ class UsuarioControllerSpec extends Specification {
 
         when:"A domain instance is passed to the edit action"
             populateValidParams(params)
-            def usuario = new Usuario(params)
-            controller.edit(usuario)
+            def agente = new Agente(params)
+            controller.edit(agente)
 
         then:"A model is populated containing the domain instance"
-            model.usuarioInstance == usuario
+            model.agenteInstance == agente
     }
 
     void "Test the update action performs an update on a valid domain instance"() {
@@ -98,28 +98,28 @@ class UsuarioControllerSpec extends Specification {
             controller.update(null)
 
         then:"A 404 error is returned"
-            response.redirectedUrl == '/usuario/index'
+            response.redirectedUrl == '/agente/index'
             flash.message != null
 
 
         when:"An invalid domain instance is passed to the update action"
             response.reset()
-            def usuario = new Usuario()
-            usuario.validate()
-            controller.update(usuario)
+            def agente = new Agente()
+            agente.validate()
+            controller.update(agente)
 
         then:"The edit view is rendered again with the invalid instance"
             view == 'edit'
-            model.usuarioInstance == usuario
+            model.agenteInstance == agente
 
         when:"A valid domain instance is passed to the update action"
             response.reset()
             populateValidParams(params)
-            usuario = new Usuario(params).save(flush: true)
-            controller.update(usuario)
+            agente = new Agente(params).save(flush: true)
+            controller.update(agente)
 
         then:"A redirect is issues to the show action"
-            response.redirectedUrl == "/usuario/show/$usuario.id"
+            response.redirectedUrl == "/agente/show/$agente.id"
             flash.message != null
     }
 
@@ -130,23 +130,23 @@ class UsuarioControllerSpec extends Specification {
             controller.delete(null)
 
         then:"A 404 is returned"
-            response.redirectedUrl == '/usuario/index'
+            response.redirectedUrl == '/agente/index'
             flash.message != null
 
         when:"A domain instance is created"
             response.reset()
             populateValidParams(params)
-            def usuario = new Usuario(params).save(flush: true)
+            def agente = new Agente(params).save(flush: true)
 
         then:"It exists"
-            Usuario.count() == 1
+            Agente.count() == 1
 
         when:"The domain instance is passed to the delete action"
-            controller.delete(usuario)
+            controller.delete(agente)
 
         then:"The instance is deleted"
-            Usuario.count() == 0
-            response.redirectedUrl == '/usuario/index'
+            Agente.count() == 0
+            response.redirectedUrl == '/agente/index'
             flash.message != null
     }
 }

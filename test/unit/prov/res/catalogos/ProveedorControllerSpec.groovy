@@ -1,13 +1,13 @@
-package prov.res.usuarios
+package prov.res.catalogos
 
 
 
 import grails.test.mixin.*
 import spock.lang.*
 
-@TestFor(UsuarioController)
-@Mock(Usuario)
-class UsuarioControllerSpec extends Specification {
+@TestFor(ProveedorController)
+@Mock(Proveedor)
+class ProveedorControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
@@ -21,8 +21,8 @@ class UsuarioControllerSpec extends Specification {
             controller.index()
 
         then:"The model is correct"
-            !model.usuarioInstanceList
-            model.usuarioInstanceCount == 0
+            !model.proveedorInstanceList
+            model.proveedorInstanceCount == 0
     }
 
     void "Test the create action returns the correct model"() {
@@ -30,7 +30,7 @@ class UsuarioControllerSpec extends Specification {
             controller.create()
 
         then:"The model is correctly created"
-            model.usuarioInstance!= null
+            model.proveedorInstance!= null
     }
 
     void "Test the save action correctly persists an instance"() {
@@ -38,25 +38,25 @@ class UsuarioControllerSpec extends Specification {
         when:"The save action is executed with an invalid instance"
             request.contentType = FORM_CONTENT_TYPE
             request.method = 'POST'
-            def usuario = new Usuario()
-            usuario.validate()
-            controller.save(usuario)
+            def proveedor = new Proveedor()
+            proveedor.validate()
+            controller.save(proveedor)
 
         then:"The create view is rendered again with the correct model"
-            model.usuarioInstance!= null
+            model.proveedorInstance!= null
             view == 'create'
 
         when:"The save action is executed with a valid instance"
             response.reset()
             populateValidParams(params)
-            usuario = new Usuario(params)
+            proveedor = new Proveedor(params)
 
-            controller.save(usuario)
+            controller.save(proveedor)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/usuario/show/1'
+            response.redirectedUrl == '/proveedor/show/1'
             controller.flash.message != null
-            Usuario.count() == 1
+            Proveedor.count() == 1
     }
 
     void "Test that the show action returns the correct model"() {
@@ -68,11 +68,11 @@ class UsuarioControllerSpec extends Specification {
 
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
-            def usuario = new Usuario(params)
-            controller.show(usuario)
+            def proveedor = new Proveedor(params)
+            controller.show(proveedor)
 
         then:"A model is populated containing the domain instance"
-            model.usuarioInstance == usuario
+            model.proveedorInstance == proveedor
     }
 
     void "Test that the edit action returns the correct model"() {
@@ -84,11 +84,11 @@ class UsuarioControllerSpec extends Specification {
 
         when:"A domain instance is passed to the edit action"
             populateValidParams(params)
-            def usuario = new Usuario(params)
-            controller.edit(usuario)
+            def proveedor = new Proveedor(params)
+            controller.edit(proveedor)
 
         then:"A model is populated containing the domain instance"
-            model.usuarioInstance == usuario
+            model.proveedorInstance == proveedor
     }
 
     void "Test the update action performs an update on a valid domain instance"() {
@@ -98,28 +98,28 @@ class UsuarioControllerSpec extends Specification {
             controller.update(null)
 
         then:"A 404 error is returned"
-            response.redirectedUrl == '/usuario/index'
+            response.redirectedUrl == '/proveedor/index'
             flash.message != null
 
 
         when:"An invalid domain instance is passed to the update action"
             response.reset()
-            def usuario = new Usuario()
-            usuario.validate()
-            controller.update(usuario)
+            def proveedor = new Proveedor()
+            proveedor.validate()
+            controller.update(proveedor)
 
         then:"The edit view is rendered again with the invalid instance"
             view == 'edit'
-            model.usuarioInstance == usuario
+            model.proveedorInstance == proveedor
 
         when:"A valid domain instance is passed to the update action"
             response.reset()
             populateValidParams(params)
-            usuario = new Usuario(params).save(flush: true)
-            controller.update(usuario)
+            proveedor = new Proveedor(params).save(flush: true)
+            controller.update(proveedor)
 
         then:"A redirect is issues to the show action"
-            response.redirectedUrl == "/usuario/show/$usuario.id"
+            response.redirectedUrl == "/proveedor/show/$proveedor.id"
             flash.message != null
     }
 
@@ -130,23 +130,23 @@ class UsuarioControllerSpec extends Specification {
             controller.delete(null)
 
         then:"A 404 is returned"
-            response.redirectedUrl == '/usuario/index'
+            response.redirectedUrl == '/proveedor/index'
             flash.message != null
 
         when:"A domain instance is created"
             response.reset()
             populateValidParams(params)
-            def usuario = new Usuario(params).save(flush: true)
+            def proveedor = new Proveedor(params).save(flush: true)
 
         then:"It exists"
-            Usuario.count() == 1
+            Proveedor.count() == 1
 
         when:"The domain instance is passed to the delete action"
-            controller.delete(usuario)
+            controller.delete(proveedor)
 
         then:"The instance is deleted"
-            Usuario.count() == 0
-            response.redirectedUrl == '/usuario/index'
+            Proveedor.count() == 0
+            response.redirectedUrl == '/proveedor/index'
             flash.message != null
     }
 }

@@ -9,16 +9,17 @@ class Usuario {
 	String nombre
 	String telefono
 	String usuario
-	Rol rol
+
+	static hasMany = [roles: Rol]
+
 
     static constraints = {
     	agente nullable: false
-	contraseña nullable: false, maxSize: 12
-	correo nullable: false
-	domicilio nullable: true
-	nombre nullable: false
-	telefono nullable: true
-	usuario nullable: false
-	rol nullable: false
+		contraseña nullable: false, maxSize: 12
+		correo nullable: false
+		domicilio nullable: true
+		nombre nullable: false
+		telefono nullable: true
+		usuario nullable: false
     }
 }
