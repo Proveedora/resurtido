@@ -28,9 +28,11 @@ environments {
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
             driverClassName = "org.firebirdsql.jdbc.FBDriver"
             dialect = "org.hibernate.dialect.FirebirdDialect"
-            username = "SYSDBA"
+            username = "sysdba"
             password = "050954ICA"
-            url = "jdbc:firebirdsql://localhost:3050/C:/promosa/winvecaja.fdb"
+            //url = "jdbc:firebirdsql://localhost:3050/C:/promosa/winvecaja.fdb"
+            url = "jdbc:firebirdsql://localhost:3050//home/develop/proyectos/db/WINVECAJA.FDB"
+
         }
     }
     test {
