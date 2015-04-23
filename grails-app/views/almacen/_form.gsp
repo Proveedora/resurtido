@@ -1,26 +1,31 @@
+<%@ page import="prov.res.almacenes.Almacen" %>
 
 
-<div class="form-group ${hasErrors(bean: almacenInstance, field: 'clave', 'error')} required col-xs-2">
+
+<div class="fieldcontain ${hasErrors(bean: almacenInstance, field: 'clave', 'error')} required">
 	<label for="clave">
 		<g:message code="almacen.clave.label" default="Clave" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="clave" class="form-control" required="" value="${almacenInstance?.clave}" placeholder="Ingresar Clave" />
+	<g:textField name="clave" required="" value="${almacenInstance?.clave}"/>
+
 </div>
 
-<div class="form-group ${hasErrors(bean: almacenInstance, field: 'direccionDB', 'error')} required col-xs-4">
+<div class="fieldcontain ${hasErrors(bean: almacenInstance, field: 'direccionDB', 'error')} required">
 	<label for="direccionDB">
 		<g:message code="almacen.direccionDB.label" default="Direccion DB" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="direccionDB" class="form-control" required="" value="${almacenInstance?.direccionDB}" placeholder="Ingresar Ruta"/>
+	<g:textField name="direccionDB" required="" value="${almacenInstance?.direccionDB}"/>
+
 </div>
 
-<div class="form-group ${hasErrors(bean: almacenInstance, field: 'nombre', 'error')} required col-xs-3">
+<div class="fieldcontain ${hasErrors(bean: almacenInstance, field: 'nombre', 'error')} required">
 	<label for="nombre">
 		<g:message code="almacen.nombre.label" default="Nombre" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="nombre" class="form-control" required="" value="${almacenInstance?.nombre}" placeholder="Ingresar Nombre"/>
+	<g:textField name="nombre" required="" value="${almacenInstance?.nombre}"/>
+
 </div>
 

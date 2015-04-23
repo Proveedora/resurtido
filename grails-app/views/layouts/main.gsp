@@ -36,6 +36,8 @@
 				<li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Catalogos <b class="caret"></b></a>
               <ul class="dropdown-menu">
+                <li><a href="/resurtido/empresa/index">Empresa</a></li>
+                <li><a href="/resurtido/sucursal/index">Sucursal</a></li>
                 <li><a href="/resurtido/rol/index">Roles</a></li>
                 <li><a href="/resurtido/usuario/index">Usuarios</a></li>
                 <li><a href="/resurtido/almacen/index">Almacenes</a></li>
