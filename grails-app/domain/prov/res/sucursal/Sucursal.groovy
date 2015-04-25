@@ -3,6 +3,7 @@ import prov.res.empresa.Empresa
 import prov.res.almacenes.Almacen
 class Sucursal{
 	String clave
+	String nombre
 	String serie
 	String ubicacion
 	Empresa empresa
@@ -12,13 +13,14 @@ class Sucursal{
 
 	static constraints = {
 		clave (blank: false)
+		nombre (blank:false)
 		serie (blank: false)
 		ubicacion (blank: false)
 	}
 
 	
 	String toString(){
-		return empresa;
+		return this.nombre;
 	}
 
 }
