@@ -12,4 +12,5 @@ class Almacen {
 		direccionDB (blank: false)
 		nombre (blank: false)
 	}
+	
 }

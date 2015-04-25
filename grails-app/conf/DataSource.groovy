@@ -30,8 +30,8 @@ environments {
             dialect = "org.hibernate.dialect.FirebirdDialect"
             username = "sysdba"
             password = "050954ICA"
-            //url = "jdbc:firebirdsql://localhost:3050/C:/promosa/winvecaja.fdb"
-            url = "jdbc:firebirdsql://localhost:3050//home/develop/proyectos/db/WINVECAJA.FDB"
+            url = "jdbc:firebirdsql://localhost:3050/C:/promosa/winvecaja.fdb"
+            //url = "jdbc:firebirdsql://localhost:3050//home/develop/proyectos/db/WINVECAJA.FDB"
 
         }
     }
