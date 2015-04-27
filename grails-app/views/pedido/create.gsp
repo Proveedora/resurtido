@@ -2,8 +2,11 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
+		<link rel="stylesheet" href="${resource(dir: 'css/ui', file: 'jquery-ui.min.css')}" type="text/css">
 		<g:set var="entityName" value="${message(code: 'pedido.label', default: 'Pedido')}" />
 		<g:javascript library="jquery" plugin="jquery"/>
+		<r:require module="jquery-ui"/>
+		<jqui:resources theme="darkness" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
 	<body>

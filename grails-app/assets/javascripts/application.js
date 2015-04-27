@@ -51,7 +51,6 @@ function addArticulo(sku,descripcion,unidad,cantidad){
     
     var tabla = $('#detallePedido');
     tabla.append('<tr>'+
-    '<td><input type="text" id ="id[]" name="id[]" size = "7" value ="'+''+'" disabled></td> '+
     '<td><input type="text" id="sku[]" name="sku[]"  size = "7" value ="'+sku+'" disabled></td> '+
     '<td><input type="text" id="descripcion[]" name="descripcion[]"  size = "40" value ="'+descripcion+'" disabled></td> '+
     '<td><input type="text" id="unidad[]" name="unidad[]"  size = "7" value ="'+unidad+'" disabled></td> '+

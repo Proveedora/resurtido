@@ -10,6 +10,9 @@ class PedidoController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    def testDatePicker = {
+    }
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Pedido.list(params), model:[pedidoInstanceCount: Pedido.count()]
