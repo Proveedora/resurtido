@@ -9,6 +9,8 @@
           <th><font size="2">DESCRIPCION</font></th>
           <th><font size="2">UNIDAD</font></th>
           <th><font size="2">CANTIDAD PEDIDA</font></th>
+          <th><font size="2">ELIMINAR</font></th>
+          <th><font size="2">MODIFICAR</font></th>
         </tr>
     </thead>
     <tbody id="detallePedido">
