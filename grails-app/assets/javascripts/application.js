@@ -19,22 +19,32 @@ if (typeof jQuery !== 'undefined') {
 		});
 	})(jQuery);
 }
+$(document).ready(function() {
 
-$(document).ready(function(){
-	$("#addArticulo").click(function(){      
-            var tabla = $('#detallePedido'); 
-            tabla.append('<tr>'+
-                '<td><input type="hidden" name="nummov[]" id ="nummov[]" size = "7" value ="'+respuesta.nummov+'" readonly></td> '+
-                '<td><input type="text" id="serfol[]" name="serfol[]" size = "7" value ="'+respuesta.serfol+'" readonly></td> '+
-                '<td><input type="text" id="numfol[]" name="numfol[]" size = "7" value ="'+respuesta.numfol+'" readonly></td> '+
-                '<td><input type="text" id="impmov[]" name="impmov[]" size = "7" value ="'+respuesta.impmov+'" readonly></td> '+
-                '<td><input type="text" id="ivatmov[]" name="ivatmov[]" size = "7" value = "'+respuesta.ivatmov+'" readonly></td> '+
-                '<td><input type="text" id="total[]" name="total[]" size = "7" value = "'+respuesta.total+'" readonly></td> '+
-                '<td><input type="text" id="fecha[]" name="fecha[]" size = "15" value = "'+respuesta.fcapmov+'" readonly></td> '+
-                '</tr>'); 
-                   
-         });
-        
-    });
+    
+
+    $(document).on("click", "#addArticulo", function(e){
+        e.preventDefault();
+        var sku = $("#sku").val();
+        var descripcion = $("#descripcion").val();
+        var unidad = $("#unidad").val();
+        var cantidad = $("#cantidad").val();
+        addArticulo(sku,descripcion,unidad,cantidad);
+    })
+});
+
+
+function addArticulo(sku,descripcion,unidad,cantidad){
+    
+    var tabla = $('#detallePedido');
+    tabla.append('<tr>'+
+    '<td><input type="text" id ="id[]" name="id[]" size = "7" value ="'+''+'" ></td> '+
+    '<td><input type="text" id="sku[]" name="sku[]"  size = "7" value ="'+sku+'" ></td> '+
+    '<td><input type="text" id="descripcion[]" name="descripcion[]"  size = "40" value ="'+descripcion+'" ></td> '+
+    '<td><input type="text" id="unidad[]" name="unidad[]"  size = "7" value ="'+unidad+'" ></td> '+
+    '<td><input type="text" id="cantPedida[]" name="cantPedida[]" size = "7" value = "'+cantidad+'" ></td> '+
+    '</tr>');
+
+}
         
   

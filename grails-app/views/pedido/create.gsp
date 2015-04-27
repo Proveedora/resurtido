@@ -31,7 +31,7 @@
 		</div>
 		<div id="busqueda-articulos" class="panel panel-info" role="main">
 			<div class="panel-heading"><h4><strong>Busqueda de Articulos</strong></h4>
-			<g:form url="[resource:pedidoInstance, action:'onClick']" >
+			<g:form url="[resource:pedidoInstance, action:'onClick']" id="formBuscar">
 						<fieldset class="form-inline">
 							<g:render template="formBusqueda"/>
 						</fieldset>
