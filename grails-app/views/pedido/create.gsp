@@ -25,20 +25,29 @@
 					</ul>
 					</g:hasErrors>
 					<!--termina validacion en vista -->
-					<g:form url="[resource:pedidoInstance, action:'save']" >
+					<g:form url="[resource:pedidoInstance, action:'guardarPrueba']" >
 						<fieldset class="form-inline">
 							<g:render template="form"/>
 						</fieldset>
-					</g:form>
+					
 				</div>
 		</div>
+		<div  class="panel panel-info" role="main">
+			<div class="panel-heading">
+			
+						<fieldset class="form-inline">
+							<g:render template="formEnviar"/>
+						</fieldset>			
+			</div>			
+		</div>	
+	</g:form>	
 		<div id="busqueda-articulos" class="panel panel-info" role="main">
 			<div class="panel-heading"><h4><strong>Busqueda de Articulos</strong></h4>
-			<g:form url="[resource:pedidoInstance, action:'onClick']" id="formBuscar">
-						<fieldset class="form-inline">
+				<g:form url="[resource:pedidoInstance, action:'crearLista']" id="formBuscar">
+							<fieldset class="form-inline">
 							<g:render template="formBusqueda"/>
 						</fieldset>
-					</g:form>
+				</g:form>
 			</div>
 
 			<div class="panel-body">
@@ -54,15 +63,14 @@
 					</ul>
 					</g:hasErrors>
 					<!--termina validacion en vista -->
-					<g:form url="[resource:pedidoInstance, action:'save']" >
+					<div>
 						<fieldset class="form">
 							<g:render template="formDetallePedido"/>
 						</fieldset>
-					</g:form>
+					</div>
 			</div>
 		</div>
-					
-			
 		
+
 	</body>
 </html>

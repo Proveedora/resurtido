@@ -3,6 +3,8 @@ package prov.res.pedido
 
 
 import static org.springframework.http.HttpStatus.*
+import prov.res.catalogos.Articulo
+import prov.res.sucursal.Sucursal;
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
@@ -103,5 +105,26 @@ class PedidoController {
             }
             '*'{ render status: NOT_FOUND }
         }
+    }
+
+    @Transactional
+    def guardarPrueba(Pedido pedidoInstance){
+        def suc = Sucursal.get(params.sucursal.id)
+		def emp = Sucursal.get(params.cedis.id)
+		def fecha = new Date()
+		//def pedido = new Pedido(sucursal:suc,estado:params.estado,fechaEnvio:fecha,folio:params.folio,cedis:emp).save(flush:true,failOnError:true)
+		
+        //def list<articulos> articulos  
+
+		
+		//def detPedido = new DetallePedido
+        
+    }
+
+    @Transactional
+    def crearLista(Pedido pedidoInstance){
+        render params
+		//def articulo = Articulo.list
+       // articulo.add()
     }
 }
