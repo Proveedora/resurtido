@@ -21,7 +21,7 @@ if (typeof jQuery !== 'undefined') {
 }
 $(document).ready(function() {
 
-    
+
 
     $(document).on("click", "#addArticulo", function(e){
         e.preventDefault();
@@ -33,10 +33,10 @@ $(document).ready(function() {
             type:"POST",
             data:"&sku="+sku+"&descripcion="+descripcion+"&unidad="+unidad+"&cantidad="+cantidad,
             url:"../PedidoController/crearLista",
-                success: function(datos){                   
+                success: function(datos){
                     alert("Articulo Insertado");
                 }
-            });             
+            });
         addArticulo(sku,descripcion,unidad,cantidad);
 
     });
@@ -45,7 +45,7 @@ $(document).ready(function() {
         e.preventDefault();
         var datos = $(this).parent().parent();
         $(datos).remove();
-        
+
     });
 
     $(document).on("click", "#modArticulo", function(e){
@@ -53,14 +53,14 @@ $(document).ready(function() {
         var datos =  $('#cantPedida\\[\\]').get();
         $(datos).removeAttr('disabled');
         //$('#cantPedida\\[\\]').val($(this).closest('tr').find('td:eq(0)').text());
-                
+
     });
 
 });
 
 
 function addArticulo(sku,descripcion,unidad,cantidad){
-    
+
     var tabla = $('#detallePedido');
     tabla.append('<tr>'+
     '<td><input type="text" id="sku" name="sku[]"  size = "7" value ="'+sku+'" disabled></td> '+
@@ -71,6 +71,4 @@ function addArticulo(sku,descripcion,unidad,cantidad){
     '<td align="center"><button id="modArticulo" class="btn btn-warning btn-sm" size = "3" title="Modificar"><span class="glyphicon glyphicon-pencil"></span></button></td> '+
     '</tr>');
 }
-        
 
-  

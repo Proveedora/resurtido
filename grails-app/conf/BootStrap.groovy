@@ -1,15 +1,22 @@
+import prov.res.catalogos.Agente
+import prov.res.catalogos.Articulo
+import prov.res.catalogos.Proveedor
+import prov.res.importacion.MaeartService
+import prov.res.importacion.MaeproService
 import prov.res.usuarios.Rol
 import prov.res.usuarios.Usuario
-import prov.res.catalogos.*
 import prov.res.almacenes.Almacen
 import prov.res.empresa.Empresa
 import prov.res.sucursal.Sucursal
+import prov.res.importacion.MaeagtService
 
 class BootStrap {
 
-    def fakerService
+    def empresa
+    def almacen
 
     def init = { servletContext ->
+
     	Rol rol = new Rol(nombre: "Admin", permisos: "uno").save(failOnError: true)
         Empresa empresa = new Empresa(CP:"68050",domicilio:"Nicolas del puerto",estado:"Oaxaca",municipio:"Oaxaca de juarez",pais:"Mexico",razonSocial:"Proveedora Escolar S. de R.L.",regimen:"Mediano",RFC:"PES12345678").save()
         Almacen almacen=new Almacen(clave:"01",direccionDB:"C:/base/winvecaja.fdb",nombre:"Merced").save()
@@ -21,25 +28,18 @@ class BootStrap {
             new Agente(numagt: fakerService.zipCode(), nombreagt: fakerService.name(), numalm: fakerService.bothify('##')).save()
         }
 
-        for (int i = 0; i < 30; i++) {
-            new Proveedor(numpro: fakerService.bothify('#####?'), nompro: fakerService.companyName()).save()
+        if(!Proveedor.count()){
+            def maeproService = new MaeproService()
+            maeproService.getProveedores()
         }
 
-        for (int i = 0; i < 300; i++) {
-            new Articulo(numart: fakerService.letterify('??????'),
-                    upcart: fakerService.bothify('?##??##??##?'),
-                    nomart: fakerService.sentence(3),
-                    uniart: "PZA",
-                    crpart: fakerService.numerify('###.##'),
-                    flgart: "MNNSNSNNSM",
-                    numdep: fakerService.numerify('##'),
-                    fucart: fakerService.pastDate(),
-                    ivaart: 0.00,
-                    tipart: "A",
-                    uniart2: "CAJA",
-                    nummon: "000",
-                    nomart2: fakerService.paragraph(6)).save()
+        if(!Articulo.count()){
+            def maeartService = new MaeartService()
+            maeartService.getArticulos()
         }
+
+
+
 
 
 
