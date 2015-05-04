@@ -19,22 +19,58 @@ if (typeof jQuery !== 'undefined') {
 		});
 	})(jQuery);
 }
+$(document).ready(function() {
 
-$(document).ready(function(){
-	$("#addArticulo").click(function(){      
-            var tabla = $('#detallePedido'); 
-            tabla.append('<tr>'+
-                '<td><input type="hidden" name="nummov[]" id ="nummov[]" size = "7" value ="'+respuesta.nummov+'" readonly></td> '+
-                '<td><input type="text" id="serfol[]" name="serfol[]" size = "7" value ="'+respuesta.serfol+'" readonly></td> '+
-                '<td><input type="text" id="numfol[]" name="numfol[]" size = "7" value ="'+respuesta.numfol+'" readonly></td> '+
-                '<td><input type="text" id="impmov[]" name="impmov[]" size = "7" value ="'+respuesta.impmov+'" readonly></td> '+
-                '<td><input type="text" id="ivatmov[]" name="ivatmov[]" size = "7" value = "'+respuesta.ivatmov+'" readonly></td> '+
-                '<td><input type="text" id="total[]" name="total[]" size = "7" value = "'+respuesta.total+'" readonly></td> '+
-                '<td><input type="text" id="fecha[]" name="fecha[]" size = "15" value = "'+respuesta.fcapmov+'" readonly></td> '+
-                '</tr>'); 
-                   
-         });
+    
+
+    $(document).on("click", "#addArticulo", function(e){
+        e.preventDefault();
+        var sku = $("#sku").val();
+        var descripcion = $("#descripcion").val();
+        var unidad = $("#unidad").val();
+        var cantidad = $("#cantidad").val();
+            $.ajax({
+            type:"POST",
+            data:"&sku="+sku+"&descripcion="+descripcion+"&unidad="+unidad+"&cantidad="+cantidad,
+            url:"../PedidoController/crearLista",
+                success: function(datos){                   
+                    alert("Articulo Insertado");
+                }
+            });             
+        addArticulo(sku,descripcion,unidad,cantidad);
+
+    });
+
+    $(document).on("click", "#delArticulo", function(e){
+        e.preventDefault();
+        var datos = $(this).parent().parent();
+        $(datos).remove();
         
     });
+
+    $(document).on("click", "#modArticulo", function(e){
+        e.preventDefault();
+        var datos =  $('#cantPedida\\[\\]').get();
+        $(datos).removeAttr('disabled');
+        //$('#cantPedida\\[\\]').val($(this).closest('tr').find('td:eq(0)').text());
+                
+    });
+
+});
+
+
+function addArticulo(sku,descripcion,unidad,cantidad){
+    
+    var tabla = $('#detallePedido');
+    tabla.append('<tr>'+
+    '<td><input type="text" id="sku" name="sku[]"  size = "7" value ="'+sku+'" disabled></td> '+
+    '<td><input type="text" id="descripcion" name="descripcion[]"  size = "40" value ="'+descripcion+'" disabled></td> '+
+    '<td><input type="text" id="unidad" name="unidad[]"  size = "7" value ="'+unidad+'" disabled></td> '+
+    '<td><input type="text" id="cantPedida" name="cantPedida[]" size = "7" value = "'+cantidad+'" disabled></td> '+
+    '<td align="center"><button id="delArticulo" class="btn btn-danger btn-sm" size = "3" title="Eliminar"><span class="glyphicon glyphicon-remove"></span></button></td> '+
+    '<td align="center"><button id="modArticulo" class="btn btn-warning btn-sm" size = "3" title="Modificar"><span class="glyphicon glyphicon-pencil"></span></button></td> '+
+    '</tr>');
+}
         
+
   

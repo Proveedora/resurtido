@@ -16,7 +16,7 @@ class BootStrap {
         new Sucursal(clave:"01",,nombre:"prueba",serie:"TA1",ubicacion:"Merced",empresa: empresa).addToAlmacenes(almacen).save()
         //new Usuario(agente:"dsd", contraseña: "david", correo:"admin@admin.com", domicilio:"asdas dasd asd asd",nombre:"David Barranco", telefono:"89080098",usuario:"david").save()
     	new Usuario(agente:"dsd", contraseña: "david", correo:"admin@admin.com", domicilio:"asdas dasd asd asd",nombre:"David Barranco", telefono:"89080098",usuario:"david").addToRoles(rol).save()
-
+        new Unidad(clave:"PZA",nombre:"Pieza");
         for (int i = 0; i < 50; i++) {
             new Agente(numagt: fakerService.zipCode(), nombreagt: fakerService.name(), numalm: fakerService.bothify('##')).save()
         }

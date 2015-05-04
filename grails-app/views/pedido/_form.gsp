@@ -1,16 +1,23 @@
 <%@ page import="prov.res.pedido.Pedido" %>
 
 <div class="span12" align="left">
-<form class="form-inline" >
+<div class="form-inline" >
 	<div class="fieldcontain ${hasErrors(bean: pedidoInstance, field: 'sucursal', 'error')} required form-group">
 		 <label for="SUCURSAL">SUCURSAL</label>
 		<g:select id="sucursal" name="sucursal.id" from="${prov.res.sucursal.Sucursal.list()}" optionKey="id" required="" value="${pedidoInstance?.sucursal?.id}" class="many-to-one form-control" style="width:150px;"/>
 
 	</div>
-	
+	<script type="text/javascript">
+        $(document).ready(function()
+        {
+          $("#datepicker").datepicker({dateFormat: 'dd/mm/yy'});
+        })
+    </script>
 	<div class="fieldcontain ${hasErrors(bean: pedidoInstance, field: 'fechaEnvio', 'error')} required form-group">
 		<label for="FECHA_DE_ENVIO">FECHA DE ENVIO</label>
-		<g:datePicker name="fechaEnvio" precision="day"  value="${pedidoInstance?.fechaEnvio}"  />
+		<input type="text" class="form-control" id="datepicker" name="fechaEnvio" size="8" />
+		<!--<g:datePicker name="fechaEnvio" precision="day"  value="${pedidoInstance?.fechaEnvio}"  />-->
+
 
 	</div>
 
@@ -33,7 +40,7 @@
 		<g:select  id="cedis" name="cedis.id" from="${prov.res.sucursal.Sucursal.list()}" optionKey="id" required="" value="${pedidoInstance?.cedis?.id}" class="many-to-one form-control" style="width:150px;"/>
 
 	</div>
-</form>
+</div>
 </div>
 
 
