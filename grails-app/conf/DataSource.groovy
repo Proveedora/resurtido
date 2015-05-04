@@ -3,7 +3,7 @@ dataSource {
     jmxExport = true
     driverClassName = "org.postgresql.Driver"
     username = "postgres"
-    password = "123456"   
+    password = "123456"
 }
 
 hibernate {
@@ -21,17 +21,17 @@ environments {
     development {
         dataSource {
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:postgresql://localhost:5432/resurtido" 
-            
+            url = "jdbc:postgresql://localhost:5432/resurtido"
+
         }
         dataSource_firebird {
-            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
+            dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
             driverClassName = "org.firebirdsql.jdbc.FBDriver"
             dialect = "org.hibernate.dialect.FirebirdDialect"
             username = "sysdba"
             password = "050954ICA"
-            url = "jdbc:firebirdsql://localhost:3050/C:/promosa/winvecaja.fdb"
-            //url = "jdbc:firebirdsql://localhost:3050//home/develop/proyectos/db/WINVECAJA.FDB"
+            //url = "jdbc:firebirdsql://localhost:3050/C:/promosa/winvecaja.fdb"
+            url = "jdbc:firebirdsql://localhost:3050//home/develop/proyectos/db/PORTAL.FDB"
 
         }
     }
@@ -44,16 +44,17 @@ environments {
     production {
         dataSource{
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:postgresql://localhost:5432/resurtido" 
-            
+            url = "jdbc:postgresql://localhost:5432/resurtido"
+
         }
          dataSource_firebird {
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
             driverClassName = "org.firebirdsql.jdbc.FBDriver"
             dialect = "org.hibernate.dialect.FirebirdDialect"
-            username = "SYSDBA"
+            username = "sysdba"
             password = "050954ICA"
-            url = "jdbc:firebirdsql://localhost:3050/C:/promosa/winvecaja.fdb"
+            //url = "jdbc:firebirdsql://localhost:3050/C:/promosa/winvecaja.fdb"
+            url = "jdbc:firebirdsql://localhost:3050//home/develop/proyectos/db/PORTAL.FDB"
         }
     }
 }

@@ -18,14 +18,17 @@ class Articulo {
 
     static constraints = {
         numart blank: false, maxSize: 18
-        upcart blank: true, maxSize: 18
-        nomart blank: false, maxSize: 999999
-        uniart blank: false, maxSize: 10
-        flgart blank: false, maxSize: 10
-        numdep blank: false, maxSize: 3
-        tipart blank: true, maxSize: 1
-        uniart2 blank: true, maxSize: 10
-        nummon blank: true, maxSize: 10
-        nomart2 blank: true, maxSize: 999999
+        upcart nullable: true, blank: true, maxSize: 18
+        nomart nullable: true, blank: false, maxSize: 999999
+        uniart nullable: true, blank: false, maxSize: 10
+        flgart nullable: true, blank: false, maxSize: 10
+        numdep nullable: true, blank: false, maxSize: 3
+        tipart nullable: true, blank: true, maxSize: 1
+        uniart2 nullable: true, blank: true, maxSize: 10
+        nummon nullable: true, blank: true, maxSize: 10
+        nomart2 nullable: true, blank: true, maxSize: 999999
+        ivaart nullable: true
+        fucart nullable: true
+        crpart nullable: true
     }
 }
