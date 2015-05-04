@@ -16,15 +16,16 @@ class BootStrap {
     def almacen
 
     def init = { servletContext ->
-        Rol rol = new Rol(nombre: "Admin", permisos: "uno").save(failOnError: true)
-        empresa = new Empresa(CP:"68050",domicilio:"Nicolas del puerto",estado:"Oaxaca",municipio:"Oaxaca de juarez",pais:"Mexico",razonSocial:"Proveedora Escolar S. de R.L.",regimen:"Mediano",RFC:"PES12345678").save()
-        almacen=new Almacen(clave:"01",direccionDB:"C:/base/winvecaja.fdb",nombre:"Merced").save()
-        new Sucursal(clave:"01",nombre:"prueba",serie:"TA1",ubicacion:"Merced",empresa: empresa).addToAlmacenes(almacen).save()
-        new Usuario(agente:"dsd", contraseña: "david", correo:"admin@admin.com", domicilio:"asdas dasd asd asd",nombre:"David Barranco", telefono:"89080098",usuario:"david").addToRoles(rol).save()
 
-        if(!Agente.count()){
-            def maeagtService = new MaeagtService()
-            maeagtService.getAgentes()
+    	Rol rol = new Rol(nombre: "Admin", permisos: "uno").save(failOnError: true)
+        Empresa empresa = new Empresa(CP:"68050",domicilio:"Nicolas del puerto",estado:"Oaxaca",municipio:"Oaxaca de juarez",pais:"Mexico",razonSocial:"Proveedora Escolar S. de R.L.",regimen:"Mediano",RFC:"PES12345678").save()
+        Almacen almacen=new Almacen(clave:"01",direccionDB:"C:/base/winvecaja.fdb",nombre:"Merced").save()
+        new Sucursal(clave:"01",,nombre:"prueba",serie:"TA1",ubicacion:"Merced",empresa: empresa).addToAlmacenes(almacen).save()
+        //new Usuario(agente:"dsd", contraseña: "david", correo:"admin@admin.com", domicilio:"asdas dasd asd asd",nombre:"David Barranco", telefono:"89080098",usuario:"david").save()
+    	new Usuario(agente:"dsd", contraseña: "david", correo:"admin@admin.com", domicilio:"asdas dasd asd asd",nombre:"David Barranco", telefono:"89080098",usuario:"david").addToRoles(rol).save()
+        new Unidad(clave:"PZA",nombre:"Pieza");
+        for (int i = 0; i < 50; i++) {
+            new Agente(numagt: fakerService.zipCode(), nombreagt: fakerService.name(), numalm: fakerService.bothify('##')).save()
         }
 
         if(!Proveedor.count()){

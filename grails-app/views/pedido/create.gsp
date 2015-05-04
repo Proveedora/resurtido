@@ -2,8 +2,11 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
+		<link rel="stylesheet" href="${resource(dir: 'css/ui', file: 'jquery-ui.min.css')}" type="text/css">
 		<g:set var="entityName" value="${message(code: 'pedido.label', default: 'Pedido')}" />
 		<g:javascript library="jquery" plugin="jquery"/>
+		<r:require module="jquery-ui"/>
+		<jqui:resources theme="darkness" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
 	<body>
@@ -22,20 +25,29 @@
 					</ul>
 					</g:hasErrors>
 					<!--termina validacion en vista -->
-					<g:form url="[resource:pedidoInstance, action:'save']" >
+					<g:form url="[resource:pedidoInstance, action:'guardarPrueba']" >
 						<fieldset class="form-inline">
 							<g:render template="form"/>
 						</fieldset>
-					</g:form>
+					
 				</div>
 		</div>
+		<div  class="panel panel-info" role="main">
+			<div class="panel-heading">
+			
+						<fieldset class="form-inline">
+							<g:render template="formEnviar"/>
+						</fieldset>			
+			</div>			
+		</div>	
+	</g:form>	
 		<div id="busqueda-articulos" class="panel panel-info" role="main">
 			<div class="panel-heading"><h4><strong>Busqueda de Articulos</strong></h4>
-			<g:form url="[resource:pedidoInstance, action:'onClick']" >
-						<fieldset class="form-inline">
+				<g:form url="[resource:pedidoInstance, action:'crearLista']" id="formBuscar">
+							<fieldset class="form-inline">
 							<g:render template="formBusqueda"/>
 						</fieldset>
-					</g:form>
+				</g:form>
 			</div>
 
 			<div class="panel-body">
@@ -51,15 +63,14 @@
 					</ul>
 					</g:hasErrors>
 					<!--termina validacion en vista -->
-					<g:form url="[resource:pedidoInstance, action:'save']" >
+					<div>
 						<fieldset class="form">
 							<g:render template="formDetallePedido"/>
 						</fieldset>
-					</g:form>
+					</div>
 			</div>
 		</div>
-					
-			
 		
+
 	</body>
 </html>
